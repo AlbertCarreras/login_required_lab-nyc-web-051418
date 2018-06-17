@@ -1,0 +1,5 @@
+<h1> <%= flash[:notice] %> </h1>
+<%= form_for :sessions do |f| %>
+<%= f.text_field :name %>
+<%= f.submit "Login" %>
+<% end %>

@@ -1,0 +1,8 @@
+<h1>Hi, <%= session[:name][0] %>!</h1>
+
+<%= link_to "Little Secret Here", "/secret" %> <br>
+
+
+<%= form_for :sessions, method: :destroy do |f| %>
+<%= f.submit 'logout' %>
+<% end %>
