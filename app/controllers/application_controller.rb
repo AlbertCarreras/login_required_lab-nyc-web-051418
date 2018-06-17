@@ -6,10 +6,13 @@ class ApplicationController < ActionController::Base
   helper_method :current_cart
 
   def current_user
-
-    session[:name] ||= []
-    
+    session[:name]
   end
 
+  private
+
+    def require_logged_in
+      redirect_to "/login" unless current_user
+    end
 
 end

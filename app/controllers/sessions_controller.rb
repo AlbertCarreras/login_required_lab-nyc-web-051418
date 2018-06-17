@@ -7,16 +7,17 @@ class SessionsController < ApplicationController
   end
 
   def new
-
+    if session[:name].present?
+      redirect_to '/'
+    end
   end
 
   def create
-    if params[:sessions][:name].nil? || params[:sessions][:name].empty?
+    if params[:sessions].nil? || params[:sessions][:name].empty?
       flash[:notice]="Please, enter username"
-      render :new
+      redirect_to '/login'
     else
-      @current_user = params[:sessions][:name]
-      current_user << @current_user
+      session[:name] = params[:sessions][:name]
       redirect_to '/'
     end
 
